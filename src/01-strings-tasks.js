@@ -96,6 +96,14 @@ function getFirstChar(value) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(/* value */) {
+  // const arr = value.split('');
+  // for (let i = 0; i < arr.length; i += 1) {
+  // if (arr[0] === ' ') {
+  //   arr.shift();
+  // i -= 1;
+  // }
+  // }
+  // return value.slice(1, value.length);
   throw new Error('Not implemented');
 }
 
