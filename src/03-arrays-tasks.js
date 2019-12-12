@@ -149,15 +149,8 @@ function getStringsLength(arr) {
  *    [ 1, 3, 4, 5 ], 2, 1  => [ 1, 2, 3, 4, 5 ]
  *    [ 1, 'b', 'c'], 0, 'x'  => [ 'x', 1, 'b', 'c' ]
  */
-function insertItem(/* arr, item, index */) {
-  throw new Error('Not implemented');
-  // const arr1 = arr.filter((it, ind) => ind < index);
-  // const arr2 = arr.filter((it, ind) => ind >= index);
-  // const arr3 = [];
-  // arr3.push(arr1).push(item).push(arr2);
-  // return arr1.concat(item, arr2);
-  // const arr3 = arr1.concat(item, arr2);
-  // return arr3;
+function insertItem(arr, item, index) {
+  return arr.splice(index, 0, item);
 }
 
 /**
@@ -296,8 +289,8 @@ function propagateItemsByPositionIndex(/* arr */) {
  *   [ 1,2,3,4,5,6,7,8,9,10 ] => [ 10, 9, 8 ]
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
-function get3TopItems(/* arr */) {
-  throw new Error('Not implemented');
+function get3TopItems(arr) {
+  return arr.sort((a, b) => b - a).slice(0, 3);
 }
 
 
@@ -314,8 +307,8 @@ function get3TopItems(/* arr */) {
  *   [ null, 1, 'elephant' ] => 1
  *   [ 1, '2' ] => 1
  */
-function getPositivesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getPositivesCount(arr) {
+  return arr.length === 0 ? 0 : arr.filter((item) => typeof (item) === 'number').sort((a, b) => a - b).pop();
 }
 
 /**
@@ -333,6 +326,7 @@ function getPositivesCount(/* arr */) {
  */
 function sortDigitNamesByNumericOrder(/* arr */) {
   throw new Error('Not implemented');
+  // return arr.slice().sort();
 }
 
 /**
@@ -347,8 +341,9 @@ function sortDigitNamesByNumericOrder(/* arr */) {
  *   [ -1, 1, -1, 1 ]      => 0
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
-function getItemsSum(/* arr */) {
-  throw new Error('Not implemented');
+function getItemsSum(arr) {
+  // throw new Error('Not implemented');
+  return arr.reduce((sum, cur) => sum + cur, 0);
 }
 
 /**
@@ -361,10 +356,16 @@ function getItemsSum(/* arr */) {
  *  [] => 0
  *  [ 1, '', 3 ] => 1
  *  [ -1, 'false', null, 0 ] => 2
- *  [ null, undefined, NaN, false, 0, '' ]  => 6
+ *  5  => 6
  */
-function getFalsyValuesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getFalsyValuesCount(arr) {
+  // eslint-disable-next-line no-restricted-globals
+  return arr.filter((item) => (isNaN(item))
+  || (item === 0)
+  || (item === '')
+  || (item === undefined)
+  || (item === null)
+  || (Number(item) === 0)).length;
 }
 
 /**
