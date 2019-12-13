@@ -175,8 +175,8 @@ function convertToUpperCase(str) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(str) {
+  return str.split(';');
 }
 
 /**
@@ -223,8 +223,8 @@ function getRectangleString(/* width, height */) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  return (`${str}`).replace(/[a-zA-Z]/gi, (s) => String.fromCharCode(s.charCodeAt(0) + (s.toLowerCase() < 'n' ? 13 : -13)));
 }
 
 /**
@@ -242,6 +242,14 @@ function encodeToRot13(/* str */) {
  */
 function isString(/* value */) {
   throw new Error('Not implemented');
+  // const regex = /^\[object (\S+?)\]$/;
+  // const matches = Object.prototype.toString.call(value).match(regex) || [];
+  // const aaa = (matches[1]).toLowerCase();
+
+  // if (typeof (aaa) === 'string') {
+  //   return true;
+  // }
+  // return false;
 }
 
 

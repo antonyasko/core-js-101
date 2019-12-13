@@ -361,23 +361,18 @@ function getItemsSum(arr) {
  */
 function getFalsyValuesCount(/* arr */) {
   throw new Error('Not implemented');
-  // eslint-disable-next-line no-restricted-globals
   // return arr.filter((item) => (isNaN(item))
   // || (item === 0)
   // || (item === 'NaN')
   // || (item === '')
   // || (item === ' ')
-  // // eslint-disable-next-line eqeqeq
   // || (item == undefined)
-  // // eslint-disable-next-line eqeqeq
   // || (item == 'undefined')
-  // // eslint-disable-next-line eqeqeq
   // || (typeof (item) == 'undefined')
   // || (item === null)
   // || (item === 'null')
   // || (item === false)
   // || (item === 'false')
-  // // eslint-disable-next-line eqeqeq
   // || (item == false)
   // || (Number(item) === 0)).length;
 }
