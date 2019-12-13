@@ -576,6 +576,10 @@ function selectMany(/* arr, childrenSelector */) {
  */
 function getElementByIndexes(/* arr, indexes */) {
   throw new Error('Not implemented');
+  // const arrBrackets = ind.map((item) => `[${item}]`);
+  // const str = `${arrBrackets.join(',')}`;
+  // const result = `${arr}${str}`;
+  // alert(result);
 }
 
 
