@@ -503,16 +503,15 @@ function getIntervalArray(start, end) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
-function distinct(arr) {
-  // throw new Error('Not implemented');
-  const result = [];
-  // eslint-disable-next-line no-restricted-syntax
-  for (const str of arr) {
-    if (!result.includes(str)) {
-      result.push(str);
-    }
-  }
-  return result;
+function distinct(/* arr */) {
+  throw new Error('Not implemented');
+  // const result = [];
+  // for (const str of arr) {
+  //   if (!result.includes(str)) {
+  //     result.push(str);
+  //   }
+  // }
+  // return result;
 }
 
 /**
