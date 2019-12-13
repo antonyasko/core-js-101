@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 /* ********************************************************************************************
  *                                                                                            *
  * Plese read the following tutorial before implementing tasks:                               *
@@ -356,16 +357,29 @@ function getItemsSum(arr) {
  *  [] => 0
  *  [ 1, '', 3 ] => 1
  *  [ -1, 'false', null, 0 ] => 2
- *  5  => 6
+ *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
-function getFalsyValuesCount(arr) {
+function getFalsyValuesCount(/* arr */) {
+  throw new Error('Not implemented');
   // eslint-disable-next-line no-restricted-globals
-  return arr.filter((item) => (isNaN(item))
-  || (item === 0)
-  || (item === '')
-  || (item === undefined)
-  || (item === null)
-  || (Number(item) === 0)).length;
+  // return arr.filter((item) => (isNaN(item))
+  // || (item === 0)
+  // || (item === 'NaN')
+  // || (item === '')
+  // || (item === ' ')
+  // // eslint-disable-next-line eqeqeq
+  // || (item == undefined)
+  // // eslint-disable-next-line eqeqeq
+  // || (item == 'undefined')
+  // // eslint-disable-next-line eqeqeq
+  // || (typeof (item) == 'undefined')
+  // || (item === null)
+  // || (item === 'null')
+  // || (item === false)
+  // || (item === 'false')
+  // // eslint-disable-next-line eqeqeq
+  // || (item == false)
+  // || (Number(item) === 0)).length;
 }
 
 /**
@@ -382,8 +396,8 @@ function getFalsyValuesCount(arr) {
  *    [ null, undefined, null ], null => 2
  *    [ true, 0, 1, 'true' ], true => 1
  */
-function findAllOccurences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurences(arr, item) {
+  return arr.filter((i) => i === item).length;
 }
 
 /**
@@ -397,8 +411,9 @@ function findAllOccurences(/* arr, item */) {
  *    [1, 2, 3, 4, 5]                   => '1,2,3,4,5'
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
-function toStringList(/* arr */) {
-  throw new Error('Not implemented');
+function toStringList(arr) {
+  // throw new Error('Not implemented');
+  return arr.join(',');
 }
 
 
@@ -428,8 +443,11 @@ function toStringList(/* arr */) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  *    ]
  */
-function sortCitiesArray(/* arr */) {
-  throw new Error('Not implemented');
+function sortCitiesArray(arr) {
+  // throw new Error('Not implemented');
+  const arrCity = arr.sort((c, d) => ((c.city < d.city) ? 1 : -1));
+  const arrCountry = arrCity.sort((a, b) => ((a.country > b.country) ? 1 : -1));
+  return arrCountry;
 }
 
 /**
@@ -452,6 +470,9 @@ function sortCitiesArray(/* arr */) {
  */
 function getIdentityMatrix(/* n */) {
   throw new Error('Not implemented');
+  // const arr = Array(n);
+  // const mat = arr.map(() => Array(n));
+  // return mat.map((matIt, matInd) => matIt.map((arrIt, arrInd) => (arrInd === matInd ? 1 : 0)));
 }
 
 /**
@@ -467,8 +488,8 @@ function getIdentityMatrix(/* n */) {
  *     0, 100 => [ 0, 1, 2, ..., 100 ]
  *     3, 3   => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+function getIntervalArray(start, end) {
+  return Array(end - start + 1).fill(start, 0, end - start + 1).map((item, index) => item + index);
 }
 
 /**
@@ -482,8 +503,16 @@ function getIntervalArray(/* start, end */) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  // throw new Error('Not implemented');
+  const result = [];
+  // eslint-disable-next-line no-restricted-syntax
+  for (const str of arr) {
+    if (!result.includes(str)) {
+      result.push(str);
+    }
+  }
+  return result;
 }
 
 /**
