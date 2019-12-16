@@ -196,6 +196,7 @@ function findFirstSingleChar(/* str */) {
  */
 function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
   throw new Error('Not implemented');
+  // const arr = (a < b) ? [a, b] : [b, a];
 }
 
 

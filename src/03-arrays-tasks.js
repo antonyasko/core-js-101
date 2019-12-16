@@ -359,22 +359,9 @@ function getItemsSum(arr) {
  *  [ -1, 'false', null, 0 ] => 2
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
-function getFalsyValuesCount(/* arr */) {
-  throw new Error('Not implemented');
-  // return arr.filter((item) => (isNaN(item))
-  // || (item === 0)
-  // || (item === 'NaN')
-  // || (item === '')
-  // || (item === ' ')
-  // || (item == undefined)
-  // || (item == 'undefined')
-  // || (typeof (item) == 'undefined')
-  // || (item === null)
-  // || (item === 'null')
-  // || (item === false)
-  // || (item === 'false')
-  // || (item == false)
-  // || (Number(item) === 0)).length;
+function getFalsyValuesCount(arr) {
+  // throw new Error('Not implemented');
+  return arr.filter((item) => (Boolean(item) === false)).length;
 }
 
 /**
