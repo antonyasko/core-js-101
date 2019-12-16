@@ -212,8 +212,8 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  return str.split('').reverse().join('');
 }
 
 
@@ -229,8 +229,9 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  // throw new Error('Not implemented');
+  return Number(String(num).split('').reverse().join(''));
 }
 
 
@@ -284,8 +285,12 @@ function isCreditCardNumber(ccn) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(/* num */) {
-  throw new Error('Not implemented');
+function getDigitalRoot(num) {
+  let count = String(num).split('').reduce((sum, current) => sum + +current, 0);
+  while (count > 9) {
+    count = String(count).split('').reduce((sum, current) => sum + +current, 0);
+  }
+  return count;
 }
 
 
@@ -310,8 +315,31 @@ function getDigitalRoot(/* num */) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced(/* str */) {
-  throw new Error('Not implemented');
+function isBracketsBalanced(str) {
+  const bracketsConfigs = [['(', ')'], ['[', ']'], ['{', '}'], ['|', '|'], ['<', '>']];
+  const arrOpenBrackets = [str[0]];
+
+  for (let i = 1; i < str.length; i += 1) {
+    const lastElem = arrOpenBrackets[arrOpenBrackets.length - 1];
+    let inverseElem;
+    bracketsConfigs.forEach((item) => {
+      if (item[0] === lastElem) {
+        const abc = item[1];
+        inverseElem = abc;
+      }
+    });
+
+    if (str[i] === inverseElem) {
+      arrOpenBrackets.pop();
+    } else {
+      arrOpenBrackets.push(str[i]);
+    }
+  }
+
+  if (arrOpenBrackets[0] === undefined) {
+    return true;
+  }
+  return false;
 }
 
 
