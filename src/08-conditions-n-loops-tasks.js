@@ -27,8 +27,20 @@
  *  21 => 'Fizz'
  *
  */
-function getFizzBuzz(/* num */) {
-  throw new Error('Not implemented');
+function getFizzBuzz(num) {
+  const fizz = 'Fizz';
+  const buzz = 'Buzz';
+  const fizzBuzz = 'FizzBuzz';
+  if (num % 3 === 0 && num % 5 !== 0) {
+    return fizz;
+  }
+  if (num % 5 === 0 && num % 3 !== 0) {
+    return buzz;
+  }
+  if (num % 5 === 0 && num % 3 === 0) {
+    return fizzBuzz;
+  }
+  return num;
 }
 
 
