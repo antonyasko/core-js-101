@@ -53,6 +53,14 @@ function getCicleCircumference(radius) {
  */
 function getAverage(/* value1, value2 */) {
   throw new Error('Not implemented');
+  // const sum = ((value1 + value2) / 2);
+  // if (value1 > 9007199254740991 || value2 > 9007199254740991) {
+  //   return Infinity;
+  // }
+  // if (sum < 9007199254740991) {
+  //   return sum;
+  // }
+  // return Infinity;
 }
 
 /**
@@ -204,8 +212,27 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  if ((n % 2 === 0) && (n !== 2)) {
+    return false;
+  }
+  if (n === 2) {
+    return true;
+  }
+
+  const k = Math.round(Math.sqrt(n));
+  let flag = false;
+
+  for (let i = 2; i < k + 1; i += 1) {
+    if (n % i === 0) {
+      flag = true;
+      break;
+    }
+  }
+  if (flag === false) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -224,11 +251,10 @@ function isPrime(/* n */) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  // eslint-disable-next-line no-restricted-globals
-  if (isNaN(Number(value)) || typeof (Number(value)) !== 'number' || typeof (value) === 'boolean') {
-    return (def);
+  if (Number(value) % 1 === 0) {
+    return (+value);
   }
-  return (Number(value) + def);
+  return def;
 }
 
 module.exports = {
