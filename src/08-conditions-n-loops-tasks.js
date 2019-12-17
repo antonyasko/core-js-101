@@ -179,8 +179,20 @@ function isInsideCircle(/* circle, point */) {
  *   'abracadabra'  => 'c'
  *   'entente' => null
  */
-function findFirstSingleChar(/* str */) {
-  throw new Error('Not implemented');
+function findFirstSingleChar(str) {
+  const arr = str.split('');
+  const arrSingleChar = [];
+  const arr2 = arr.sort();
+  arr2.forEach((item, index) => {
+    if (arr2[index] !== arr2[index + 1] && arr2[index] !== arr2[index - 1]) {
+      arrSingleChar.push(arr2[index]);
+    }
+  });
+
+  if (arrSingleChar.length === 0) {
+    return null;
+  }
+  return arrSingleChar[0];
 }
 
 
@@ -206,9 +218,24 @@ function findFirstSingleChar(/* str */) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
-  // const arr = (a < b) ? [a, b] : [b, a];
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  const arr = [];
+  if (a < b) {
+    arr.push(`${a}, ${b}`);
+  } else {
+    arr.push(`${b}, ${a}`);
+  }
+  if (isEndIncluded === true) {
+    arr.push(']');
+  } else {
+    arr.push(')');
+  }
+  if (isStartIncluded === true) {
+    arr.unshift('[');
+  } else {
+    arr.unshift('(');
+  }
+  return arr.join('');
 }
 
 
@@ -242,7 +269,6 @@ function reverseString(str) {
  *   34143 => 34143
  */
 function reverseInteger(num) {
-  // throw new Error('Not implemented');
   return Number(String(num).split('').reverse().join(''));
 }
 
