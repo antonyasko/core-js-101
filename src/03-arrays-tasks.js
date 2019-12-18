@@ -325,9 +325,9 @@ function getPositivesCount(arr) {
  *   [ 'nine','eight','nine','eight'] => [ 'eight','eight','nine','nine']
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
-  // return arr.slice().sort();
+function sortDigitNamesByNumericOrder(arr) {
+  const digits = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+  return arr.sort((a, b) => digits.indexOf(a) - digits.indexOf(b));
 }
 
 /**
@@ -360,7 +360,6 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-  // throw new Error('Not implemented');
   return arr.filter((item) => (Boolean(item) === false)).length;
 }
 
@@ -394,7 +393,6 @@ function findAllOccurences(arr, item) {
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
 function toStringList(arr) {
-  // throw new Error('Not implemented');
   return arr.join(',');
 }
 
