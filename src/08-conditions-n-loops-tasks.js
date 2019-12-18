@@ -419,6 +419,10 @@ function isBracketsBalanced(str) {
  */
 function toNaryString(/* num, n */) {
   throw new Error('Not implemented');
+  // const aaa = String(num);
+  // const bbb = parseInt(aaa, n);
+  // const ccc = String(bbb);
+  // return ccc;
 }
 
 
@@ -457,8 +461,31 @@ function getCommonDirectoryPath(/* pathes */) {
  *                         [ 6 ]]
  *
  */
-function getMatrixProduct(/* m1, m2 */) {
-  throw new Error('Not implemented');
+function getMatrixProduct(m1, m2) {
+  const rowsM1 = m1.length;
+  const colsM1 = m1[0].length;
+  const rowsM2 = m2.length;
+  const colsM2 = m2[0].length;
+  const C = [];
+
+  if (colsM1 !== rowsM2) {
+    return false;
+  }
+
+  for (let i = 0; i < rowsM1; i += 1) {
+    C[i] = [];
+  }
+
+  for (let k = 0; k < colsM2; k += 1) {
+    for (let i = 0; i < rowsM1; i += 1) {
+      let t = 0;
+      for (let j = 0; j < rowsM2; j += 1) {
+        t += m1[i][j] * m2[j][k];
+      }
+      C[i][k] = t;
+    }
+  }
+  return C;
 }
 
 
