@@ -51,16 +51,9 @@ function getCicleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
-  // const sum = ((value1 + value2) / 2);
-  // if (value1 > 9007199254740991 || value2 > 9007199254740991) {
-  //   return Infinity;
-  // }
-  // if (sum < 9007199254740991) {
-  //   return sum;
-  // }
-  // return Infinity;
+function getAverage(value1, value2) {
+  // eslint-disable-next-line no-undef
+  return ((BigInt(value1) + BigInt(value2)) / BigInt(2));
 }
 
 /**
@@ -221,15 +214,15 @@ function isPrime(n) {
   }
 
   const k = Math.round(Math.sqrt(n));
-  let flag = false;
+  let status = false;
 
   for (let i = 2; i < k + 1; i += 1) {
     if (n % i === 0) {
-      flag = true;
+      status = true;
       break;
     }
   }
-  if (flag === false) {
+  if (status === false) {
     return true;
   }
   return false;

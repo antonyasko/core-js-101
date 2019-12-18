@@ -245,6 +245,9 @@ function isString(/* value */) {
   // if (typeof value === 'string') {
   //   return true;
   // }
+  // if (typeof value === 'object') {
+  //   return true;
+  // }
   // return false;
 }
 
