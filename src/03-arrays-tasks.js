@@ -343,7 +343,6 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-  // throw new Error('Not implemented');
   return arr.reduce((sum, cur) => sum + cur, 0);
 }
 
@@ -424,7 +423,6 @@ function toStringList(arr) {
  *    ]
  */
 function sortCitiesArray(arr) {
-  // throw new Error('Not implemented');
   const arrCity = arr.sort((c, d) => ((c.city < d.city) ? 1 : -1));
   const arrCountry = arrCity.sort((a, b) => ((a.country > b.country) ? 1 : -1));
   return arrCountry;
@@ -487,15 +485,8 @@ function getIntervalArray(start, end) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
-  // const result = [];
-  // for (const str of arr) {
-  //   if (!result.includes(str)) {
-  //     result.push(str);
-  //   }
-  // }
-  // return result;
+function distinct(arr) {
+  return arr.sort((a, b) => a - b).filter((item, index) => (arr[index] !== arr[index - 1]));
 }
 
 /**
