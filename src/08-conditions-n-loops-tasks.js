@@ -436,6 +436,24 @@ function toNaryString(/* num, n */) {
  */
 function getCommonDirectoryPath(/* pathes */) {
   throw new Error('Not implemented');
+  // let lastItem = pathes[pathes.length - 1].slice(1).split('/');
+  /* alert(lastItem); */
+  // pathes.pop();
+  // const arr = pathes;
+
+  // const bbb = arr.map((item) => item.slice(1).split('/'));
+
+  // alert(bbb);
+  // bbb.forEach(function(item) {
+  //   if (item.includes(lastItem)) {
+  //     alert(lastItem);
+  //   } else {
+  //     while (!item.includes(lastItem)) {
+  //       lastItem = lastItem.slice(0, lastItem.length - 1);
+  //     }
+  //     alert(lastItem);
+  //   }
+  // });
 }
 
 
