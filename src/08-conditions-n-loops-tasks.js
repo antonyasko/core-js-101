@@ -132,18 +132,19 @@ function isTriangle(a, b, c) {
  *   { top:20, left:20, width: 20, height: 20 }    =>  false
  *
  */
-function doRectanglesOverlap(/* rect1, rect2 */) {
-  throw new Error('Not implemented');
-  // const top1 = rect1.top + rect1.height;
-  // const top2 = rect2.top + rect2.height;
-  // const bottom1 = rect1.top;
-  // const bottom2 = rect2.top;
-  // const left1 = rect1.left;
-  // const left2 = rect2.left;
-  // const right1 = rect1.left + rect1.width;
-  // const right2 = rect2.left + rect2.width;
-
-  // return (top1 > bottom2 || bottom1 > top2 || right1 < left2 || left1 > right2);
+function doRectanglesOverlap(rect1, rect2) {
+  const top1 = rect1.top + rect1.height;
+  const top2 = rect2.top + rect2.height;
+  const bottom1 = rect1.top;
+  const bottom2 = rect2.top;
+  const left1 = rect1.left;
+  const left2 = rect2.left;
+  const right1 = rect1.left + rect1.width;
+  const right2 = rect2.left + rect2.width;
+  return (top1 >= bottom2 && right1 >= left2 && top1 <= top2 && right1 <= right2)
+  || (top2 >= bottom1 && right1 >= left2 && top2 <= top1 && right1 <= right2)
+  || (top1 >= bottom2 && right2 >= left1 && top1 <= top2 && right2 <= right1)
+  || (top2 >= bottom1 && right2 >= left1 && top2 <= top1 && right2 <= right1);
 }
 
 
@@ -196,19 +197,14 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-  const arr = str.split('');
   const arrSingleChar = [];
-  const arr2 = arr.sort();
-  arr2.forEach((item, index) => {
-    if (arr2[index] !== arr2[index + 1] && arr2[index] !== arr2[index - 1]) {
-      arrSingleChar.push(arr2[index]);
+  const arr = str.split('').sort();
+  arr.forEach((item, index) => {
+    if (arr[index] !== arr[index + 1] && arr[index] !== arr[index - 1]) {
+      arrSingleChar.push(arr[index]);
     }
   });
-
-  if (arrSingleChar.length === 0) {
-    return null;
-  }
-  return arrSingleChar[0];
+  return arrSingleChar.length === 0 ? null : arrSingleChar[0];
 }
 
 
@@ -236,6 +232,11 @@ function findFirstSingleChar(str) {
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
   const arr = [];
+  if (isStartIncluded === true) {
+    arr.push('[');
+  } else {
+    arr.push('(');
+  }
   if (a < b) {
     arr.push(`${a}, ${b}`);
   } else {
@@ -245,11 +246,6 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
     arr.push(']');
   } else {
     arr.push(')');
-  }
-  if (isStartIncluded === true) {
-    arr.unshift('[');
-  } else {
-    arr.unshift('(');
   }
   return arr.join('');
 }
