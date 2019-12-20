@@ -543,13 +543,12 @@ function group(/* array, keySelector, valueSelector */) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-  // throw new Error('Not implemented');
-  const arr2 = [];
+  const newArr = [];
   arr.map((item) => {
-    const x = childrenSelector(item);
-    arr2.push(...x);
+    newArr.push(...childrenSelector(item));
     return item;
   });
+  return newArr;
 }
 
 
