@@ -430,26 +430,19 @@ function toNaryString(num, n) {
  *   ['/web/assets/style.css', '/.bin/mocha',  '/read.me'] => '/'
  *   ['/web/favicon.ico', '/web-scripts/dump', '/webalizer/logs'] => '/'
  */
-function getCommonDirectoryPath(/* pathes */) {
-  throw new Error('Not implemented');
-  // let lastItem = pathes[pathes.length - 1].slice(1).split('/');
-  /* alert(lastItem); */
-  // pathes.pop();
-  // const arr = pathes;
-
-  // const bbb = arr.map((item) => item.slice(1).split('/'));
-
-  // alert(bbb);
-  // bbb.forEach(function(item) {
-  //   if (item.includes(lastItem)) {
-  //     alert(lastItem);
-  //   } else {
-  //     while (!item.includes(lastItem)) {
-  //       lastItem = lastItem.slice(0, lastItem.length - 1);
-  //     }
-  //     alert(lastItem);
-  //   }
-  // });
+function getCommonDirectoryPath(pathes) {
+  const directory = pathes[0];
+  let commonDirectory = '';
+  for (let i = 0; i < directory.length; i += 1) {
+    const char = directory[i];
+    for (let j = 1; j < pathes.length; j += 1) {
+      if (char !== pathes[j][i]) {
+        return commonDirectory.slice(0, commonDirectory.lastIndexOf('/') + 1);
+      }
+    }
+    commonDirectory += char;
+  }
+  return commonDirectory;
 }
 
 
